@@ -1,4 +1,4 @@
-import random
+import random 
 
 a = random.randint(-2, 2)
 b = random.randint(-2, 2)
