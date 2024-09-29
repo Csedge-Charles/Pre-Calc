@@ -66,7 +66,27 @@ else:
     
 saying_4 = f'Horizontal {way} factor of {factor}'
 if_else(saying_4, 4)
-func_list = ['sin(x)', 'cos(x)', 'tan(x)', 'ln(x)', 'x²', '√x']
+
+
+b = random.randint(-5, 5)
+c = random.randint(-11, 11)
+
+while b == 0:
+    b = random.randint(-5, 5)
+while c == 0:
+    c = random.randint(-11, 11)
+
+sign_1 = '+'
+sign_2 = '-'
+
+if b < 0:
+    b *= -1
+    sign_1 = '-'
+if c < 0:
+    c *= -1
+    sign_2 = '-'
+
+func_list = [f'x² {sign_1} {b}x {sign_2} {c}']
 print('')
 print('')
 print(f'Given f(x) = {random.choice(func_list)}, what is g(x) if f(x) had a')
