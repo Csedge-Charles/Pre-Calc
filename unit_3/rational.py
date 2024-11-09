@@ -1,4 +1,6 @@
 import random
+case = random.randint(1,4)
+
 
 def capasify(x, y):
     range_list = []
@@ -23,13 +25,13 @@ for i in (parameters):
     i *= -1
     n.append(i)
     
-case = random.randint(1, 5)
+
 
 #quadratic 1
 a1 = random.randint(-2, 2)
-b1 = random.randint(-4, 4)
+b1 = random.randint(-4, -2)
 c1 = random.randint(-2, 2)
-d1 = random.randint(-5, 5)
+d1 = random.randint(2, 5)
 
 while a1 == 0:
     a1 = random.randint(-2, 2)
@@ -40,9 +42,15 @@ while d1 == 0:
 while b1 == 0:
     b1 = random.randint(-5, 5)
 
+
+
+
 first_coeff = a1 * c1
 second_coeff = a1 * d1 + c1 * b1
 third_coeff = b1 * d1
+
+
+
 
 first_sign_1 = ' + '
 first_sign_2 = '+'
@@ -70,23 +78,28 @@ first_quadratic = f'{first_coeff}x²{first_sign_1}{second_coeff}{x} {first_sign_
 
 #quadratic 2
 
-a2 = random.randint(-2, 2)
-b2 = random.randint(-4, 4)
-c2 = random.randint(-2, 2)
-d2 = random.randint(-5, 5)
+a2 = random.randint(1, 2)
+b2 = random.randint(-4, -2)
+c2 = 1
+d2 = random.randint(2, 4)
 
 while a2 == 0:
     a2 = random.randint(-2, 2)
 while c2 == 0:
     c2 = random.randint(-2, 2)
 while d2 == 0:
-    d2 = random.randint(-5, 5)
+    d2 = random.randint(2, 4)
 while b2 == 0:
-    b2 = random.randint(-5, 5)
+    b2 = random.randint(-4, -2)
 
 first_coeff_2 = a2 * c2
 second_coeff_2 = a2 * d2 + c2 * b2
 third_coeff_2 = b2 * d2
+
+quad_1_coeff_1 = first_coeff_2
+quad_1_coeff_2 = second_coeff_2
+quad_1_coeff_3 = third_coeff_2
+
 
 second_sign_1 = ' + '
 second_sign_2 = '+'
@@ -234,28 +247,113 @@ cubic = f'{copy_1}x³ {sign_1} {copy_2}x² {sign_2} {copy_3}x {sign_3} {copy_4}'
 a = random.randint(-2, 2)
 b = random.randint(-3, 3)
 
+a_1 = a
+b_1 = b
 while a == 0:
     a = random.randint(-2, 2)
-
+while b == 0:
+    b = random.randint(-3, 3)
 if a == 1:
-    a = ''
+    a_1 = ''
 if a == -1:
-    a = '-'
+    a_1 = '-'
     
 sign_1 = ' + '
 if b < 0:
-    b *= -1
+    b_1 *= -1
     sign_1 = ' - '
 
 if b == 0:
     sign_1 = ''
-    b = ''
+    b_1 = ''
 
-binomial = f'{a}x{sign_1}{b}'
+binomial = f'{a_1}x{sign_1}{b_1}'
 
+#legit quadratic
+
+a_2 = random.randint(-2, 2)
+b_2 = random.randint(-3, 3)
+c = random.randint(-3, 3)
+
+while a_2 == 0:
+    a_2 = random.randint(-2, 2)
+while b_2 == 0:
+    b_2 = random.randint(-3, 3)
+while c == 0:
+    c = random.randint(-3, 3)
+
+lead_coefficient = a * a_2
+sec_coefficient = a * b_2 + a_2 * b
+constant = b * b_2 + c
+
+if lead_coefficient == 1:
+    lead_coefficient = ''
+if lead_coefficient == -1:
+    lead_coefficient = '-'
+
+
+sign_1 = '+'
+sign_2 = '+'
+
+if sec_coefficient < 0:
+    sec_coefficient *= -1
+    sign_1 = '-'
+    
+if constant < 0:
+    constant *= -1
+    sign_2 = '-'
+
+if sec_coefficient == 1:
+    sec_coefficient = ''
+    
+    
+legit_quadratic = f'{lead_coefficient}x² {sign_1} {sec_coefficient}x {sign_2} {constant}'
+
+d = random.randint(-3, 3)
+
+while d == 0:
+    d = random.randint(-3, 3)
+#legit cubic
+
+lead_coefficient = quad_1_coeff_1 * a_2
+sec_coefficient = a_2 * quad_1_coeff_2 + quad_1_coeff_1 * b_2
+coefficient_3 = quad_1_coeff_2 * b_2 + a_2 * quad_1_coeff_3 + d
+coefficient_4 = b_2 * quad_1_coeff_3 + c
+
+if lead_coefficient == 1:
+    lead_coefficient = ''
+if lead_coefficient == -1:
+    lead_coefficient = '-'
+
+
+sign_1 = '+'
+sign_2 = '+'
+sign_3 = '+'
+
+if sec_coefficient < 0:
+    sec_coefficient *= -1
+    sign_1 = '-'
+    
+if coefficient_3 < 0:
+    coefficient_3 *= -1
+    sign_2 = '-'
+
+if coefficient_4 < 0:
+    coefficient_4 *= -1
+    sign_3 = '-'
+    
+if sec_coefficient == 1:
+    sec_coefficient = ''
+    
+if coefficient_3 == 1:
+    coefficient_3 = ''
+
+legit_cubic = f'{lead_coefficient}x³ {sign_1} {sec_coefficient}x² {sign_2} {coefficient_3}x {sign_3} {coefficient_4}'
 #intiger
 
-num = random.randint(-5, 5)
+
+
+num = 3
 while num == 0:
     num = random.randint(-5, 5)
 
@@ -269,14 +367,14 @@ if case == 1:
 if case == 2:
     print()
     print()
-    print(f'({cubic}) / ({random.choice([first_quadratic, second_quadratic])})')
+    print(f'({legit_cubic}) / ({second_quadratic})')
     print()
     print()
     
 if case == 3:
     print()
     print()
-    print(f'({random.choice([first_quadratic, second_quadratic])}) / ({binomial})')
+    print(f'({legit_quadratic})) / ({binomial})')
     print()
     print()
 
